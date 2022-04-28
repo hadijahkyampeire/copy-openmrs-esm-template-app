@@ -22,7 +22,7 @@
  */
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-import Hello from "./hello";
+import Hello from "./systemInfo";
 import { useConfig } from "@openmrs/esm-framework";
 import { Config } from "./config-schema";
 

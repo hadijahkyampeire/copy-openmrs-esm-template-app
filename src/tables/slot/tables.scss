@@ -1,0 +1,19 @@
+@import "~@openmrs/esm-styleguide/src/vars";
+
+.tables {
+  margin: 2em 0 0 1em;
+  display: flex;
+  flex-direction: column;
+
+  .table {
+    width: 85rem;
+    margin-bottom: 2rem;
+    .title {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+}

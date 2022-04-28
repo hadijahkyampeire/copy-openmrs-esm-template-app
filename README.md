@@ -1,18 +1,14 @@
 ![Node.js CI](https://github.com/openmrs/openmrs-esm-template-app/workflows/Node.js%20CI/badge.svg)
 
-# OpenMRS ESM Template App
+# OpenMRS ESM System Information Page/MicroFrontend
 
-This repository provides a starting point for creating your own
-[OpenMRS Microfrontend](https://wiki.openmrs.org/display/projects/OpenMRS+3.0%3A+A+Frontend+Framework+that+enables+collaboration+and+better+User+Experience).
+This repository is created from [this template](https://github.com/openmrs/openmrs-esm-template-app) and it is a small MicroFrontend which just presents the system information.
 
-For more information, please see the
-[OpenMRS Frontend Developer Documentation](https://openmrs.github.io/openmrs-esm-core/#/).
+It is a start project to get familiar with building my own MicroFrontend.
 
-In particular, the [Setup](https://openmrs.github.io/openmrs-esm-core/#/getting_started/setup)
-section can help you get started developing microfrontends in general. The
-[Creating a microfrontend](https://openmrs.github.io/openmrs-esm-core/#/main/creating_a_microfrontend)
-section provides information about how to use this repository to create your
-own microfrontend.
+## Prerequisites
+- Ensure to have your node version as ^16.2.
+- You might run into build errors if you have not upgraded your openmrs version, if that happens run `yarn upgrade @openmrs/esm-framework openmrs`
 
 ## Running this code
 
@@ -23,30 +19,9 @@ yarn start  # to run the dev server
 
 Once it is running, a browser window
 should open with the OpenMRS 3 application. Log in and then navigate to
-`/openmrs/spa/hello`.
+`/openmrs/spa/systemInfo`.
 
-## Adapting the code
+## Helpful resources
 
-1. Start by finding and replacing all instances of "template" with the name
-  of your microfrontend.
-1. Update `index.ts` as appropriate, at least changing the feature name and
-  the page name and route.
-1. Rename the `hello.*` family of files to have the name of your first page.
-1. Delete the contents of the objects in `config-schema`. Start filling them
-  back in once you have a clear idea what will need to be configured.
-1. Delete the `greeter` and `patient-getter` directories, and the contents of
-  `hello.tsx`.
-1. Delete the contents of `translations/en.json`.
-1. Open up `.github/workflows` and adapt it to your needs. If you're writing
-  a microfrontend that will be managed by the community, you might be able to
-  just replace all instances of `template` with your microfrontend's name.
-  However, if you're writing a microfrontend for a specific organization or
-  implementation, you will probably need to configure GitHub Actions differently.
-1. Delete the contents of this README and write a short explanation of what
-  you intend to build. Links to planning or design documents can be very helpful.
+Check the Frequently Asked Questions(FAQs)[3.0 devs FAQS](https://o3-dev.docs.openmrs.org/#/main/faq?id=im-not-seeing-the-latest-openmrsesm-framework-how-do-i-update-the-dependency)
 
-At this point, you should be able to write your first page as a React application.
-
-## Integrating it into your application
-
-Please see [Creating a Microfrontend](https://openmrs.github.io/openmrs-esm-core/#/main/creating_a_microfrontend).
