@@ -90,7 +90,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.4",
     "jest-cli": "^27.0.4",
-    "openmrs": "next",
+    "openmrs": "^3.2.1-pre.1155",
     "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
     "react": "^16.13.1",

@@ -1,4 +1,4 @@
 {
-  "casualGreeting": "hey",
-  "formalGreeting": "hello"
+  "tableHeaderNameColumn": "Name",
+  "tableHeaderValueColumn": "Value"
 }

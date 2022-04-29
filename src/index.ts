@@ -47,7 +47,7 @@ function setupOpenMRS() {
   const moduleName = "@openmrs/esm-template-app";
 
   const options = {
-    featureName: "hello-world",
+    featureName: "system-information",
     moduleName,
   };
 
@@ -56,35 +56,54 @@ function setupOpenMRS() {
   return {
     pages: [
       {
-        load: getAsyncLifecycle(() => import("./hello"), options),
-        route: "hello",
+        load: getAsyncLifecycle(
+          () => import("./system-info.component"),
+          options
+        ),
+        route: "systemInfo",
       },
     ],
     extensions: [
       {
-        id: "Red box",
+        id: "Info Table",
         load: getAsyncLifecycle(
-          () => import("./boxes/extensions/red-box"),
+          () => import("./tables/extensions/info-table.component"),
           options
         ),
-        slot: "Boxes",
+        slot: "Tables",
       },
       {
-        id: "Blue box",
+        id: "DataBase Table",
         load: getAsyncLifecycle(
-          () => import("./boxes/extensions/blue-box"),
+          () => import("./tables/extensions/database-table.component"),
           options
         ),
-        slot: "Boxes",
+        slot: "Tables",
         // same as `slots: ["Boxes"],`
       },
       {
-        id: "Brand box",
+        id: "Javaruntime Table",
         load: getAsyncLifecycle(
-          () => import("./boxes/extensions/brand-box"),
+          () => import("./tables/extensions/java-run-time-table.component"),
           options
         ),
-        slot: "Boxes",
+        slot: "Tables",
+      },
+      {
+        id: "Memory Table",
+        load: getAsyncLifecycle(
+          () => import("./tables/extensions/memory-table.component"),
+          options
+        ),
+        slot: "Tables",
+      },
+      {
+        id: "Module Table",
+        load: getAsyncLifecycle(
+          () => import("./tables/extensions/module-table.component"),
+          options
+        ),
+        slot: "Tables",
       },
     ],
   };
