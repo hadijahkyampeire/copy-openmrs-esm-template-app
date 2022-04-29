@@ -17,14 +17,25 @@ interface InfoDataTable {
   isLoading: boolean;
 }
 
-const InfoDataTable = ({ headerData, rowData, isLoading }) => {
+const commonHeaderData = [
+  {
+    header: "Name",
+    key: "name",
+  },
+  {
+    header: "Value",
+    key: "value",
+  },
+];
+
+const InfoDataTable = ({ rowData, isLoading, headerData }) => {
   if (isLoading) {
     return <DataTableSkeleton role="progressbar" />;
   }
   if (rowData.length) {
     return (
       <div className="table">
-        <DataTable rows={rowData} headers={headerData} useZebraStyles>
+        <DataTable rows={rowData} headers={commonHeaderData} useZebraStyles>
           {({ rows, headers, getHeaderProps, getTableProps }) => (
             <TableContainer title="DataTable">
               <Table {...getTableProps()}>

@@ -56,7 +56,10 @@ function setupOpenMRS() {
   return {
     pages: [
       {
-        load: getAsyncLifecycle(() => import("./systemInfo"), options),
+        load: getAsyncLifecycle(
+          () => import("./system-info.component"),
+          options
+        ),
         route: "systemInfo",
       },
     ],
@@ -64,7 +67,7 @@ function setupOpenMRS() {
       {
         id: "Info Table",
         load: getAsyncLifecycle(
-          () => import("./tables/extensions/infoTable"),
+          () => import("./tables/extensions/info-table.component"),
           options
         ),
         slot: "Tables",
@@ -72,7 +75,7 @@ function setupOpenMRS() {
       {
         id: "DataBase Table",
         load: getAsyncLifecycle(
-          () => import("./tables/extensions/databaseTable"),
+          () => import("./tables/extensions/database-table.component"),
           options
         ),
         slot: "Tables",
@@ -81,7 +84,7 @@ function setupOpenMRS() {
       {
         id: "Javaruntime Table",
         load: getAsyncLifecycle(
-          () => import("./tables/extensions/javaRunTimeTable"),
+          () => import("./tables/extensions/java-run-time-table.component"),
           options
         ),
         slot: "Tables",
@@ -89,7 +92,7 @@ function setupOpenMRS() {
       {
         id: "Memory Table",
         load: getAsyncLifecycle(
-          () => import("./tables/extensions/memoryTable"),
+          () => import("./tables/extensions/memory-table.component"),
           options
         ),
         slot: "Tables",
@@ -97,7 +100,7 @@ function setupOpenMRS() {
       {
         id: "Module Table",
         load: getAsyncLifecycle(
-          () => import("./tables/extensions/moduleTable"),
+          () => import("./tables/extensions/module-table.component"),
           options
         ),
         slot: "Tables",

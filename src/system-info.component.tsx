@@ -9,7 +9,7 @@
  */
 
 import React from "react";
-import styles from "./systemInfo.css";
+import styles from "./system-info.css";
 import { Tables } from "./tables/slot/tables";
 
 const SystemInformation: React.FC = () => {

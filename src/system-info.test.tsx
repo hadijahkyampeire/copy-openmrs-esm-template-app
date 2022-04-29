@@ -22,9 +22,7 @@
  */
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-import Hello from "./systemInfo";
 import { useConfig } from "@openmrs/esm-framework";
-import { Config } from "./config-schema";
 
 /**
  * This is an idiomatic way of dealing with mocked files. Note that
@@ -33,7 +31,6 @@ import { Config } from "./config-schema";
  * mock file. This line just tells TypeScript that the object is, in
  * fact, a mock, and so will have methods like `mockReturnValue`.
  */
-const mockUseConfig = useConfig as jest.Mock;
 
 describe(`<Hello />`, () => {
   afterEach(cleanup);
