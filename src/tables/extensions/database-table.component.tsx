@@ -1,30 +1,32 @@
 import React from "react";
 import useSWR from "swr";
+import { pick } from "lodash";
 import { openmrsFetch } from "@openmrs/esm-framework";
 
 import { InfoDataTable } from "./data-table.component";
+import { formatTableData } from "../utils";
 import styles from "../slot/tables.scss";
-
-const rowData = [
-  {
-    name: "DataBase Schema Name",
-    value: "openmrs-db",
-  },
-];
 
 const DatabaseTable: React.FC = () => {
   const url = `/ws/rest/v1/systeminformation`;
-  const { data, error, isValidating } = useSWR<
-    { data: { systemInformation } },
-    Error
-  >(url, openmrsFetch);
+  const { data, error, isValidating } = useSWR<{ data: { systemInfo } }, Error>(
+    url,
+    openmrsFetch
+  );
 
+  const rowData = formatTableData(
+    data?.data.systemInfo["SystemInfo.title.dataBaseInformation"]
+  );
   const isLoading = !data && !error;
 
   return (
     <div className={styles.table}>
-      <div className={styles.title}>DataBase Information</div>
-      <InfoDataTable rowData={rowData} headerData={[]} isLoading={isLoading} />
+      <InfoDataTable
+        rowData={rowData}
+        headerData={[]}
+        isLoading={isLoading}
+        tableTitle="DataBase Information"
+      />
     </div>
   );
 };

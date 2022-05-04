@@ -10,11 +10,13 @@
     margin-bottom: 2rem;
 
   }
-  .title {
-    margin-bottom: 0.5rem;
-  }
 }
 
+// .tableContainer .bx--data-table-header__title {
+//   @include brand-01(border-bottom-color);
+//   border-width: 2px;
+//   width: fit-content;
+// } I can't get these styles to work on the table title
 .container {
   width: 100%;
 }
