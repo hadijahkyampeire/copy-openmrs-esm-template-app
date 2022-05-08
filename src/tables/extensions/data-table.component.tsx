@@ -10,8 +10,7 @@ import {
   TableHead,
   DataTableSkeleton,
 } from "carbon-components-react";
-
-// import styles from "../slot/tables.scss";
+import { useLayoutType } from "@openmrs/esm-framework";
 
 interface InfoDataTable {
   headerData: [];
@@ -34,18 +33,22 @@ const commonHeaderData = [
 ];
 
 const InfoDataTable = ({ rowData, isLoading, headerData, tableTitle = "" }) => {
+  const layout = useLayoutType();
+  const desktopView = layout === "desktop";
   if (isLoading) {
     return <DataTableSkeleton role="progressbar" />;
   }
   if (rowData.length) {
     return (
       <div className="table">
-        <DataTable rows={rowData} headers={commonHeaderData} useZebraStyles>
+        <DataTable
+          rows={rowData}
+          headers={commonHeaderData}
+          useZebraStyles
+          size={desktopView ? "compact" : "normal"}
+        >
           {({ rows, headers, getHeaderProps, getTableProps }) => (
-            <TableContainer
-              title={tableTitle}
-              // className={styles.tableContainer} // not working yet
-            >
+            <TableContainer title={tableTitle}>
               <Table {...getTableProps()}>
                 <TableHead>
                   <TableRow>

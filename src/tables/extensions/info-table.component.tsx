@@ -6,29 +6,39 @@ import { InfoDataTable } from "./data-table.component";
 import { formatTableData } from "../utils";
 import styles from "../slot/tables.scss";
 
-const OpenMrsInfoTable: React.FC = () => {
+const InfoTables: React.FC = () => {
   const url = `/ws/rest/v1/systeminformation`;
   const { data, error, isValidating } = useSWR<{ data: { systemInfo } }, Error>(
     url,
     openmrsFetch
   );
 
-  const rowData = formatTableData(
-    data?.data.systemInfo["SystemInfo.title.openmrsInformation"]
-  );
+  const allTableData = data?.data && Object.entries(data?.data.systemInfo);
+  const useTitle = {
+    "SystemInfo.title.openmrsInformation": "OpenMRS Information",
+    "SystemInfo.title.javaRuntimeEnvironmentInformation":
+      "Java RunTime Information",
+    "SystemInfo.title.memoryInformation": "Memory Information",
+    "SystemInfo.title.moduleInformation": "Module Information",
+    "SystemInfo.title.dataBaseInformation": "DataBase Information",
+  };
 
   const isLoading = !data && !error;
 
   return (
-    <div className={styles.table}>
-      <InfoDataTable
-        rowData={rowData}
-        headerData={[]}
-        isLoading={isLoading}
-        tableTitle="OpenMRS Information"
-      />
+    <div className={styles.tables}>
+      {allTableData?.map(([key, value]) => (
+        <div className={styles.table} key={key}>
+          <InfoDataTable
+            rowData={formatTableData(value)}
+            headerData={[]}
+            isLoading={isLoading}
+            tableTitle={useTitle[key]}
+          />
+        </div>
+      ))}
     </div>
   );
 };
 
-export default OpenMrsInfoTable;
+export default InfoTables;
