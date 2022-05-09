@@ -1,18 +1,18 @@
 @import "~@openmrs/esm-styleguide/src/vars";
 
-.tables {
+.systemInfoTables {
   margin: 2em 0 0 1em;
   display: flex;
   flex-direction: column;
 
-  .table {
+  .systemInfoTable {
     width: 85rem;
     margin-bottom: 2rem;
 
   }
 }
 
-:global(.bx--data-table-header__title)  {
+.systemInfoTable > :global(.bx--data-table-header__title)  {
   @include brand-01(border-bottom-color);
   border-width: 2px;
   border-bottom-style: solid;

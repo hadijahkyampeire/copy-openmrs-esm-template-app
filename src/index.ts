@@ -65,7 +65,7 @@ function setupOpenMRS() {
     ],
     extensions: [
       {
-        id: "All Tables",
+        id: "System Information Tables",
         load: getAsyncLifecycle(
           () => import("./tables/extensions/info-table.component"),
           options

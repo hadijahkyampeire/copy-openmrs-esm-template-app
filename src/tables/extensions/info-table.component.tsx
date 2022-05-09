@@ -26,9 +26,9 @@ const InfoTables: React.FC = () => {
   const isLoading = !data && !error;
 
   return (
-    <div className={styles.tables}>
+    <div className={styles.systemInfoTables}>
       {allTableData?.map(([key, value]) => (
-        <div className={styles.table} key={key}>
+        <div className={styles.systemInfoTable} key={key}>
           <InfoDataTable
             rowData={formatTableData(value)}
             headerData={[]}
