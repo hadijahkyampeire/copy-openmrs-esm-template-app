@@ -9,8 +9,10 @@ import {
   TableHeader,
   TableHead,
   DataTableSkeleton,
+  InlineLoading,
 } from "carbon-components-react";
 import { useLayoutType } from "@openmrs/esm-framework";
+import styles from "./data-table.scss";
 
 interface InfoDataTable {
   headerData: [];
@@ -32,15 +34,36 @@ const commonHeaderData = [
   },
 ];
 
-const InfoDataTable = ({ rowData, isLoading, headerData, tableTitle = "" }) => {
+const CardHeader = ({ isValidating, title, isTablet }) => {
+  return (
+    <div className={isTablet ? styles.tabletHeader : styles.desktopHeader}>
+      <h4>{title}</h4>
+      <span>{isValidating ? <InlineLoading /> : null}</span>
+    </div>
+  );
+};
+
+const InfoDataTable = ({
+  rowData,
+  isLoading,
+  headerData,
+  tableTitle = "",
+  isValidating,
+}) => {
   const layout = useLayoutType();
   const desktopView = layout === "desktop";
+  const isTablet = useLayoutType() === "tablet";
   if (isLoading) {
     return <DataTableSkeleton role="progressbar" />;
   }
   if (rowData.length) {
     return (
       <div className="table">
+        <CardHeader
+          title={tableTitle}
+          isTablet={isTablet}
+          isValidating={isValidating}
+        />
         <DataTable
           rows={rowData}
           headers={commonHeaderData}
@@ -48,7 +71,7 @@ const InfoDataTable = ({ rowData, isLoading, headerData, tableTitle = "" }) => {
           size={desktopView ? "compact" : "normal"}
         >
           {({ rows, headers, getHeaderProps, getTableProps }) => (
-            <TableContainer title={tableTitle}>
+            <TableContainer>
               <Table {...getTableProps()}>
                 <TableHead>
                   <TableRow>

@@ -34,6 +34,7 @@ const InfoTables: React.FC = () => {
             headerData={[]}
             isLoading={isLoading}
             tableTitle={useTitle[key]}
+            isValidating={isValidating}
           />
         </div>
       ))}

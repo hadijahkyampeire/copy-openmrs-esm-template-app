@@ -6,18 +6,11 @@
   flex-direction: column;
 
   .systemInfoTable {
-    width: 85rem;
     margin-bottom: 2rem;
 
   }
 }
 
-.systemInfoTable > :global(.bx--data-table-header__title)  {
-  @include brand-01(border-bottom-color);
-  border-width: 2px;
-  border-bottom-style: solid;
-  width: fit-content;
-}
 .container {
   width: 100%;
 }
