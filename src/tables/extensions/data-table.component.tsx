@@ -52,7 +52,7 @@ const InfoDataTable = ({
 }) => {
   const layout = useLayoutType();
   const desktopView = layout === "desktop";
-  const isTablet = useLayoutType() === "tablet";
+  const isTablet = layout === "tablet";
   if (isLoading) {
     return <DataTableSkeleton role="progressbar" />;
   }
