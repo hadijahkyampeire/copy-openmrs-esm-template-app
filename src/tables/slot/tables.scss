@@ -1,17 +1,13 @@
 @import "~@openmrs/esm-styleguide/src/vars";
 
-.tables {
+.systemInfoTables {
   margin: 2em 0 0 1em;
   display: flex;
   flex-direction: column;
 
-  .table {
-    width: 85rem;
+  .systemInfoTable {
     margin-bottom: 2rem;
 
-  }
-  .title {
-    margin-bottom: 0.5rem;
   }
 }
 

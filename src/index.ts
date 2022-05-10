@@ -65,42 +65,9 @@ function setupOpenMRS() {
     ],
     extensions: [
       {
-        id: "Info Table",
+        id: "System Information Tables",
         load: getAsyncLifecycle(
           () => import("./tables/extensions/info-table.component"),
-          options
-        ),
-        slot: "Tables",
-      },
-      {
-        id: "DataBase Table",
-        load: getAsyncLifecycle(
-          () => import("./tables/extensions/database-table.component"),
-          options
-        ),
-        slot: "Tables",
-        // same as `slots: ["Boxes"],`
-      },
-      {
-        id: "Javaruntime Table",
-        load: getAsyncLifecycle(
-          () => import("./tables/extensions/java-run-time-table.component"),
-          options
-        ),
-        slot: "Tables",
-      },
-      {
-        id: "Memory Table",
-        load: getAsyncLifecycle(
-          () => import("./tables/extensions/memory-table.component"),
-          options
-        ),
-        slot: "Tables",
-      },
-      {
-        id: "Module Table",
-        load: getAsyncLifecycle(
-          () => import("./tables/extensions/module-table.component"),
           options
         ),
         slot: "Tables",
